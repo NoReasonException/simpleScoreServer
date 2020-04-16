@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 import json
 
-a={"Stef":"12:03"}
+a={}
 
 def getScores(request):
 
@@ -10,6 +10,7 @@ def getScores(request):
 
 def postScore(request):
     name=request.GET.get('name', '')
-    time=request.GET.get('time', '')
-    a[name]=time[:2]+":"+time[2:]
+    score=request.GET.get('score', '')
+    #a[name]=time[:2]+":"+time[2:]
+    a[name] = score
     return HttpResponse(json.dumps(a))
